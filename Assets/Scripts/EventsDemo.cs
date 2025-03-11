@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,9 @@ public class EventsDemo : MonoBehaviour
     public UnityEvent TimerHasFinished;
     public float timerLength = 2;
     public float t;
+    public UnityEvent Light;
+    public UnityEvent LightOff;
+    public bool lightOn = false;
 
     void Update()
     {
@@ -20,6 +24,7 @@ public class EventsDemo : MonoBehaviour
             TimerHasFinished.Invoke();
         }
     }
+
 
     public void IJustPushedAButton()
     {
@@ -41,5 +46,21 @@ public class EventsDemo : MonoBehaviour
     {
         Debug.Log("Mouse has left the sprite!");
         banana.localScale = Vector3.one;
+    }
+    public void LightisActivated()
+    {
+        if (lightOn == false)
+        {
+            lightOn = true;
+            Light.Invoke();
+        }
+        else
+        {
+            lightOn = false;
+        }
+    }
+    public void LightIsDeactivated()
+    {
+        LightOff.Invoke();
     }
 }
