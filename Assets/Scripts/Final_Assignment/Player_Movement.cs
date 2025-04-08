@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-<<<<<<< HEAD
-    public float speed = 5;
-    void Update()
-    {
-       float moving = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-       transform.Translate(moving, 0, 0);
-=======
     public float speed;
      void Update()
     {
@@ -28,6 +21,5 @@ public class Player_Movement : MonoBehaviour
         {
             transform.Translate(moveAmount, 0f, 0f);
         }
->>>>>>> Tilemap
     }
 }
