@@ -5,14 +5,18 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 SpriteRenderer sr;
+Animator animator;
     public float speed;
     void Start() {
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
      void Update()
     {
+        
         //Keyboard controls
         float moving = Input.GetAxis("Horizontal");
+        animator.SetFloat("speed", Mathf.Abs(moving));
 
         //Movement speed, adjustable with speed value and kept smooth across frames with Time.deltaTime
         float moveAmount = moving * speed * Time.deltaTime;
