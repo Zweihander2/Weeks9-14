@@ -17,6 +17,6 @@ public class Player_Attack : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        animator.SetTrigger("HeroKnight_Attack1");
+        animator.SetTrigger("attack");
     }
 }
