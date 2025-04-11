@@ -8,23 +8,31 @@ public class Enemy : MonoBehaviour
     public Vector2 direction;
     public float enemyHealth = 3f;
     public GameObject knight;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
+        // Enemy movement
         transform.Translate(direction * speed * Time.deltaTime);
     }
-    void Die() {
-    if (enemyHealth <= 0) {
-        Destroy(gameObject);
+
+    public void TakeDamage(float damageAmount)
+    {
+        enemyHealth -= damageAmount;
+        Debug.Log("Enemy health: " + enemyHealth); // Debugging the damage taken
+        if (enemyHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject); // Destroy the enemy when health reaches zero
+    }
+
+    public void SetDirection(int Direction)
+    {
+        direction = new Vector3(Direction, 0, -0.94f); // Set movement direction
     }
 }
-public void SetDirection(int Direction) {
-    direction = new Vector3(Direction, 0, -0.94f);
-}
-}
+
